@@ -1,0 +1,3 @@
+---
+# vars file for fetchvnet
+resource_group: azuretest_group

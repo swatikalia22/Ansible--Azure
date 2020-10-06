@@ -1,0 +1,17 @@
+---
+# tasks file for fetchvnet
+- name: Fetch facts for all virtual network
+  azure_rm_virtualnetwork_info:
+    resource_group: "{{resource_group}}"
+  register: output
+
+- name: Get facts by tags
+  azure_rm_virtualnetwork_info:
+    tags:
+      - Testing
+      - Dev
+
+- name: print value of Vnet
+  debug:
+    var: output
+
