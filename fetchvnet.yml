@@ -1,0 +1,20 @@
+- hosts: localhost
+  connection: local
+  
+  tasks: 
+    - name: Fetch facts for one virtual network
+      azure_rm_virtualnetwork_info:
+        resource_group: azuretest_group
+
+    - name: Fetch facts for all virtual networks
+      azure_rm_virtualnetwork_info:
+        resource_group: azuretest_group           
+      register: output
+
+    - name: Get facts by tags
+      azure_rm_virtualnetwork_info:
+        tags: testing
+
+    - name: print value of Vnet
+      debug: 
+        var: output

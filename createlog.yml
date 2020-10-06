@@ -1,0 +1,32 @@
+---
+- name: playbook for creating a log profile
+  hosts: localhost
+  connection: local
+  vars:
+    profile_name: logprofile-test
+    location: East US 2
+    resource_groupname: azuretest_group
+    account_name: mastergroupdiag250
+
+  tasks:
+  - name: create a log profile
+    azure_rm_monitorlogprofile:
+      name: "{{ profile_name }}" 
+      location: "{{ location }}" 
+      categories:
+        - Write
+        - Action
+      retention_policy:
+        enabled: True
+        days: 2
+      storage_account:
+        resource_group: "{{ resource_groupname }}"
+        name: "{{ account_name }}"
+      state: present
+    register: output
+
+  - name: Print the log profile output
+    debug: 
+      var: output
+
+

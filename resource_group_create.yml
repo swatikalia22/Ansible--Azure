@@ -1,0 +1,13 @@
+---
+- name: Azure - Resource Group - Create
+  hosts: localhost
+  connection: local
+  vars:
+    resource_group: CentOS
+    location: South Central US
+  tasks:
+  - name: Create a resource group
+    azure_rm_resourcegroup:
+      name: "{{ resource_group }}"
+      location: "{{ location }}"
+...

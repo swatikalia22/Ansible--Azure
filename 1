@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    profile_name: logprofile-test
+    location: eastus2
+    resource_groupname: azuretest_group
+    account_name: mastergroupdiag250
+
+   - name: Create a log profile
+     azure_rm_monitorlogprofile:
+       name: "{{ profile_name }}" 
+       location: "{{ location }}" 
+       categories:
+         - Write
+         - Action
+       retention_policy:
+         enabled: True
+         days: 2
+       storage_account:
+         resource_group: "{{ resource_groupname }}"
+         name: "{{ account_name }}"
+     register: output
+
+   - Print the log profile output
+     debug: 
+       var: output
+
+

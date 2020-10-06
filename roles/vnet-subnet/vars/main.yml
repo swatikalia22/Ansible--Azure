@@ -1,0 +1,6 @@
+---
+# vars file for vnet-subnet
+resource_group: index2
+vnet_name: VNet-Index2
+subnet_name: Testsubnet2
+location: eastus2
