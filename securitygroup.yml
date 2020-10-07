@@ -1,0 +1,6 @@
+---
+- name: Create resource_group , VPC and Subnet
+  hosts: localhost
+  connection: local
+  roles:
+    - SGroup

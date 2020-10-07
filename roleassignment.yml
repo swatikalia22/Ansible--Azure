@@ -3,12 +3,11 @@
   vars:
     username: Swati Kalia
     roleassignmentname: Application administrator
-    assignee: swatikalia.cse_gmail.com#EXT#@swatikaliacsegmail.onmicrosoft.com
     scope: /subscriptions/6530cd7d-1f02-4bac-80bd-55ac743cdf4d
   
   tasks: 
   - name: Get role assignments for specific service principal
-    azure_rm_roleassignment_facts:
+    azure_rm_roleassignment_info:
       name: "{{ roleassignmentname }}"
       scope: "{{ scope }}"
     register: output

@@ -1,0 +1,6 @@
+---
+# vars file for webapp
+resource_group: azuretest_group
+webapp_name: swatkat
+plan_name: swatkat-linuxplan
+location: eastus2

@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: delete security group
+      azure_rm_securitygroup:
+        resource_group: localhost
+        name: Controller-nsg
+        state: absent

@@ -1,0 +1,4 @@
+---
+# vars file for SGroup
+resource_group: azuretest_group
+name: indexsecuritygroup

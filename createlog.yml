@@ -4,7 +4,7 @@
   connection: local
   vars:
     profile_name: logprofile-test
-    location: East US 2
+    location: eastus2
     resource_groupname: azuretest_group
     account_name: mastergroupdiag250
 
@@ -12,7 +12,9 @@
   - name: create a log profile
     azure_rm_monitorlogprofile:
       name: "{{ profile_name }}" 
-      location: "{{ location }}" 
+      location: "{{ location }}"
+      locations: 
+        - eastus2
       categories:
         - Write
         - Action

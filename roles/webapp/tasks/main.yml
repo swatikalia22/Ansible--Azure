@@ -1,0 +1,30 @@
+---
+# tasks file for webapp
+- name: Create a resource group
+  azure_rm_resourcegroup:
+    name: "{{ resource_group }}"
+    location: "{{ location }}"
+
+- name: Create App Service on Linux with Java Runtime
+  azure_rm_webapp:
+    resource_group: "{{ resource_group }}"
+    name: "{{ webapp_name }}"
+    app_settings:
+      testkey: testvalue
+    plan:
+          resource_group: "{{ resource_group }}"
+          name: "{{ plan_name }}"
+          is_linux: true
+          sku: S1
+          number_of_workers: 1
+    frameworks:
+      - name: "java"
+        version: "8"
+        settings:
+          java_container: "Tomcat"
+          java_container_version: "8.5"
+  register: output
+ 
+- name: Print the value of output
+  debug: 
+    var: output
