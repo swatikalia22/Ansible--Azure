@@ -1,0 +1,9 @@
+---
+# vars file for traffic
+resource_group_webapp: index1
+resource_group: index2
+webapp_name: plan-index
+plan_name: plan-index
+location: eastus2
+traffic_manager_profile_name: TrafficManagerProfile-index1
+traffic_manager_endpoint_name: TrafficManagerEndpoint-index2
